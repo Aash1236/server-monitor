@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'git@github.com:Aash1236/server-monitor.git'
+                git branch: 'main', url: 'git@github.com:Aash1236/server-monitor.git'
             }
         }
 
