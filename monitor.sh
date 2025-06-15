@@ -60,6 +60,6 @@ if [[ $CPU_USAGE -gt $CPU_THRESHOLD || $MEM_USAGE -gt $MEM_THRESHOLD || $DISK_US
 fi
 
 if [[ "$1" == "--dry-run" ]]; then
-	exit "Dry run successfull: all checks loaded"
+	echo "Dry run successfull: all checks loaded"
 	exit 0
 fi
