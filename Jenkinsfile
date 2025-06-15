@@ -15,17 +15,15 @@ pipeline {
         }
 
         stage('ShellCheck Linting') {
-              steps {
-		  steps {
-    script {
-      def result = sh(script: 'shellcheck -x monitor.sh utils.sh docker_monitor.sh', returnStatus: true)
-      if (result != 0) {
-        echo "ShellCheck found issues (exit code ${result}). Review above output."
-        // Optional: failBuild can be added if you want to stop here
-        // error("ShellCheck failed.")
-      }
-    }
-  }
+            steps {
+                script {
+                    def result = sh(script: 'shellcheck -x monitor.sh utils.sh docker_monitor.sh', returnStatus: true)
+                    if (result != 0) {
+                        echo "ShellCheck found issues (exit code ${result}). Review above output."
+                        // Optional: error("ShellCheck failed.")
+                    }
+                }
+            }
         }
 
         stage('Dry Run Monitoring Script') {
