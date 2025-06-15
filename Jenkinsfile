@@ -10,7 +10,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'git@github.com:Aash1236/server-monitor.git'
+                git url: 'git@github.com:Aash1236/server-monitor.git', 
+            branch: 'main',
+            credentialsId: 'jenkins-github-key'
             }
         }
 
