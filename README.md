@@ -1,4 +1,4 @@
-
+
 # 🚀 Advanced Linux Server Monitoring System
 
 > A full-featured Linux shell scripting project that monitors system health, Docker containers, sends Slack alerts, exports Prometheus metrics for Grafana, and implements a Jenkins CI/CD pipeline.
