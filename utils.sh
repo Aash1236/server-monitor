@@ -5,15 +5,15 @@ check_cpu() {
 }
 
 check_mem() {
-    MEM_USAGE=$(free | awk '/Mem:/ {printf("%.0f"), $3/$2 * 100}')
+    export MEM_USAGE=$(free | awk '/Mem:/ {printf("%.0f"), $3/$2 * 100}')
 }
 
 check_disk() {
-    DISK_USAGE=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
+    export DISK_USAGE=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
 }
 
 check_top_processes() {
-    TOP_PROCESSES=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 6)
+    export TOP_PROCESSES=$(ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 6)
 }
 check_docker_stats() {
   local stats

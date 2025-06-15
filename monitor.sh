@@ -9,6 +9,13 @@ echo ">>> Script started at $(date)"
 source config.cfg
 source utils.sh
 
+if [[ "${1:-}" == "--dry-run" ]]; then
+    echo "Dry run successful: all checks loaded"
+    exit 0
+fi
+
+mkdir -p logs reports
+
 TODAY=$(date +%F)
 JSON_LOG="logs/reports-$TODAY.json"
 TXT_REPORT="reports/summary-$TODAY.txt"
@@ -19,7 +26,6 @@ check_disk
 check_top_processes
 check_docker_stats
 
-mkdir -p logs reports
 
 #JSON logs
 cat <<EOF > "$JSON_LOG"
@@ -59,7 +65,3 @@ if [[ $CPU_USAGE -gt $CPU_THRESHOLD || $MEM_USAGE -gt $MEM_THRESHOLD || $DISK_US
     alert "$(cat "$TXT_REPORT")"
 fi
 
-if [[ "$1" == "--dry-run" ]]; then
-	echo "Dry run successfull: all checks loaded"
-	exit 0
-fi

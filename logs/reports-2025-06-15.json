@@ -1,14 +1,14 @@
 {
     "date": "2025-06-15",
-    "cpu_usage": "100",
-    "memory_usage": "5",
+    "cpu_usage": "1",
+    "memory_usage": "12",
     "disk_usage": "1",
     "top_processes": "    PID    PPID CMD                         %MEM %CPU
-    297       1 /usr/bin/dockerd -H fd:// -  0.5  0.2
+   8344     613 bash ./monitor.sh            0.0  3.5
+   4397       1 /usr/bin/java -Djava.awt.he  6.3  2.5
+    297       1 /usr/bin/dockerd -H fd:// -  0.6  0.0
     254       1 /usr/bin/containerd          0.3  0.0
-    122       1 snapfuse /var/lib/snapd/sna  0.0  0.0
-      1       0 /sbin/init                   0.0  0.0
-    212       1 /usr/lib/snapd/snapd         0.3  0.0",
+    122       1 snapfuse /var/lib/snapd/sna  0.1  0.0",
     "docker_stats": "NAME             CPU %     MEM USAGE / LIMIT
-test-container   0.00%     7.148MiB / 14.61GiB"
+test-container   0.00%     7.145MiB / 14.61GiB"
 }
