@@ -22,13 +22,13 @@ check_docker_stats
 mkdir -p logs reports
 
 #JSON logs
-cat <<EOF > $JSON_LOG
+cat <<EOF > "$JSON_LOG"
 {
     "date": "$TODAY",
     "cpu_usage": "$CPU_USAGE",
     "memory_usage": "$MEM_USAGE",
     "disk_usage": "$DISK_USAGE",
-    "top_processes": "$(echo "$TOP_PROCESSES" | sed 's/"/\\"/g')",
+    "top_processes": "${TOP_PROCESSES//\"/\\\"}",
     "docker_stats": "$(echo "$DOCKER_STATS" | sed 's/"/\\"/g')"
 }
 EOF

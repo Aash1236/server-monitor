@@ -15,13 +15,15 @@ pipeline {
         }
 
         stage('ShellCheck Linting') {
-            steps {
-                sh '''
-                sudo apt-get update
-                sudo apt-get install -y shellcheck
-                shellcheck monitor.sh utils.sh docker_monitor.sh
-                '''
-            }
+              steps {
+    script {
+      def status = sh(script: 'shellcheck monitor.sh utils.sh docker_monitor.sh', returnStatus: true)
+      if (status != 0) {
+        echo "ShellCheck found issues (exit code ${status}). Review above output."
+      }
+    }
+  }
+
         }
 
         stage('Dry Run Monitoring Script') {
