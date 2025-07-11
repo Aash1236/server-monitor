@@ -262,11 +262,7 @@ git push -u origin main
 
 ---
 
-## 📝 License
-
-Licensed under the [MIT License](LICENSE)
-
----
+## 
 
 > 🧠 _“Monitor smart. Alert fast. Visualize beautifully.”_
 
